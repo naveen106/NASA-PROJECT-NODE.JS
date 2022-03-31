@@ -25,7 +25,7 @@ function loadHabitablePlanets() {
    return new Promise( (resolve, reject) => {
       
 
-      fs.createReadStream(path.join(__dirname,'..','data','KeplerData.csv'))
+      fs.createReadStream(path.join(__dirname,'..','..','data','KeplerData.csv'))
       .pipe(parse({
          comment: '#',
          columns: true,
@@ -37,13 +37,17 @@ function loadHabitablePlanets() {
       .on('error', err => reject(err)) //on error, reject promise.
       .on('end', () => { //on end, resolve promise.
          resolve();
-      });      
-   
+      });   
 
    })
 }
 
+function getAllPlanets() {
+   return results;
+}
+
 module.exports = {
    loadHabitablePlanets,
-   planets: results,
+   //planets: results,
+   getAllPlanets,
 };
