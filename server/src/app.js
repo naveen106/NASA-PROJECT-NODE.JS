@@ -1,17 +1,30 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
+const path = require('path');
 const app = express();
 
 const planetsRouter = require('./routes/planets/planets.router');
-
+const launchesRouter = require('./routes/launches/launches.router');
 //CROSS_ORIGIN-POLICY- WHITELIST
 app.use(cors({
    origin: 'http://localhost:3000'
 }));
 
+app.use(morgan('combined'));
+
 //PARSE ANY INCOMING REQUEST AS JSON OBJECT
 app.use(express.json());
 
+app.use(launchesRouter);
 app.use(planetsRouter);
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+
+//if endpoint doesn't matches with any or our routes, express will passes it on the react application on index.html (react will handle routing then).
+app.use('/*', (req, res) => {
+   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
 
 module.exports = app;
