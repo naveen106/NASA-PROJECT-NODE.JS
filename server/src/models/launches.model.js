@@ -1,0 +1,20 @@
+const launches = new Map();
+
+const launch = {
+   flightNumber: 100,
+   mission:'Kepler Exploration X',
+   rocket: 'Explorer IS1',
+   launchDate: Date('April 30', '2021'),
+   destination: 'Kepler-442 b',
+   customer: ['ZTM', 'NASA'],
+   upcoming: true,
+   success: true,
+}
+
+launches.set(launch.flightNumber, launch);
+
+function getAllLaunches() {
+   return Array.from(launchesMap.values());
+}
+
+module.exports = getAllLaunches;
