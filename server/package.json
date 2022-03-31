@@ -6,11 +6,17 @@
   "scripts": {
     "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "author": "Naveen Kumar",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.0.4",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
   }
 }
