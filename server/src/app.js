@@ -16,8 +16,8 @@ app.use(morgan('combined'));
 //PARSE ANY INCOMING REQUEST AS JSON OBJECT
 app.use(express.json());
 
-app.use(launchesRouter);
-app.use(planetsRouter);
+app.use('/launches',launchesRouter);
+app.use('/planets',planetsRouter);
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
