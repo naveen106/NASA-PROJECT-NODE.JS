@@ -17,14 +17,14 @@ app.use(morgan('combined'));
 app.use(express.json());
 
 app.use('/launches',launchesRouter);
-app.use('/planets',planetsRouter);
+app.use('/planets', planetsRouter);
 
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public', 'build')));
 
 
 //if endpoint doesn't matches with any or our routes, express will passes it on the react application on index.html (react will handle routing then).
 app.use('/*', (req, res) => {
-   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+   res.sendFile(path.join(__dirname, '..', 'public', 'build', 'index.html'));
 });
 
 module.exports = app;
