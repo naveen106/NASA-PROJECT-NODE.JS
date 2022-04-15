@@ -35,7 +35,9 @@ function doesLaunchIdExists(launchId) {
 
 function abortLaunchWithId(launchId) {
    const abortedObject = launchesMap.get(launchId);
-   launchesMap.delete(launchId);
+   abortedObject.upcoming = false;
+   abortedObject.success = false;
+   //launchesMap.delete(launchId);
    return abortedObject;
 }
 

@@ -26,12 +26,12 @@ function httpAddLaunch(req, res) {
  
 
 function httpAbortLaunch(req, res) {
-   const id = req.params.id;
+   const id = +req.params.id;   //get id from url params
 
-   if (doesLaunchIdExists(id)) {
-      //abortLaunchWithId(id);
-      return res.json(abortLaunchWithId);
-   }
+   if (doesLaunchIdExists(id)) {    //if launch with provided id exists
+      const object = abortLaunchWithId(id);
+      return res.json(object); 
+   } 
    else {
       return res.status(404).json({ error: `Launch not found` });
    }
