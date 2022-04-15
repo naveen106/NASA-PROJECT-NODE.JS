@@ -20,7 +20,6 @@ function loadHabitablePlanets() {
    //now if we require('planets.models.js'), this current code will execute and we will get the full array(data) to work on.
    //otherwise(without promise) no data is there to work upon.
 
-
    //wrapped inside Promise
    return new Promise( (resolve, reject) => {
       
