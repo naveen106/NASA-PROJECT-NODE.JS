@@ -22,7 +22,7 @@ app.use('/planets', planetsRouter);
 
 app.use(express.static(path.join(__dirname, '..', 'public', 'build')));
 
-//if endpoint doesn't matches with any or our routes, express passes it on the react application on index.html (react will handle routing then).
+//if endpoint doesn't matches with any of our routes, express passes it on the react application on index.html (react will handle routing then).
 app.use('/*', (req, res) => {
    res.sendFile(path.join(__dirname, '..', 'public', 'build', 'index.html'));
 });

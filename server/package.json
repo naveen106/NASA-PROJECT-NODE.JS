@@ -5,13 +5,15 @@
   "main": "src/server.js",
   "scripts": {
     "watch": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/server.js"
   },
   "author": "Naveen Kumar",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   },
   "dependencies": {
     "cors": "^2.8.5",
